@@ -4,4 +4,4 @@
 
 User driven radio station - React frontend app.
 
-For corresponding backend service look at [dj-lama](https://github.com/Deseteral/dj-lama).
+For corresponding backend service look at [dj-lama-service](https://github.com/Deseteral/dj-lama-service).
