@@ -1,8 +1,13 @@
 import React from 'react';
+import Navigator from '../Navigator/Navigator';
 
 function App() {
   return (
-    <div>DJ Lama frontend app</div>
+    <Navigator>
+      <div>Status</div>
+      <div>Play now</div>
+      <div>Library</div>
+    </Navigator>
   );
 }
 

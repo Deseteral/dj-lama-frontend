@@ -1,5 +1,13 @@
+:root {
+  --navigator-size: 72px;
+
+  --color-background: #37474F;
+  --color-navigator: #607D8B;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: var(--color-background);
 }
