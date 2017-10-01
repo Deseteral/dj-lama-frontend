@@ -19,7 +19,7 @@ function App({ store }) {
             component={(() => <Redirect to="/status" />)}
           />
           <Navigator />
-          <div className={styles.container}>
+          <div className={styles['container']}>
             <Switch>
               <Route path="/status" component={StatusPage} />
               <Route path="/library" component={LibraryPage} />
