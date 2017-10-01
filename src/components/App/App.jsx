@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navigator from '../Navigator/Navigator';
@@ -18,11 +18,7 @@ function App({ store }) {
             exact
             component={(() => <Redirect to="/status" />)}
           />
-          <Navigator>
-            <Link to="/status">Status</Link>
-            <Link to="/library">Library</Link>
-            <Link to="/queue">Queue</Link>
-          </Navigator>
+          <Navigator />
           <div className={styles.container}>
             <Switch>
               <Route path="/status" component={StatusPage} />

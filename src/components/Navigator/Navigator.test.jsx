@@ -5,31 +5,27 @@ import Navigator from './Navigator';
 describe('Navigator component', () => {
   it('should render', () => {
     // when
-    const wrapper = shallow(
-      <Navigator>
-        <div>one</div>
-        <div>two</div>
-        <div>three</div>
-      </Navigator>);
+    const wrapper = shallow(<Navigator />);
 
     // then
     expect(wrapper.find('.root').length).toBe(1);
   });
 
-  it('should render children', () => {
-    // when
-    const wrapper = shallow(
-      <Navigator>
-        <div>one</div>
-        <div>two</div>
-        <div>three</div>
-      </Navigator>);
+  describe('buttons', () => {
+    [
+      { name: 'Status', to: '/status' },
+      { name: 'Library', to: '/library' },
+      { name: 'Queue', to: '/queue' },
+    ].forEach((testCase, index) => {
+      it(`should render ${testCase.name} button`, () => {
+        // when
+        const wrapper = shallow(<Navigator />);
+        const buttonWrapper = wrapper.find('NavigatorButton').at(index);
 
-    // then
-    expect(wrapper.find('.child').length).toBe(3);
-    expect(wrapper.find('.child').map(n => n.text()))
-      .toEqual([
-        'one', 'two', 'three',
-      ]);
+        // then
+        expect(buttonWrapper.prop('name')).toBe(testCase.name);
+        expect(buttonWrapper.prop('to')).toBe(testCase.to);
+      });
+    });
   });
 });

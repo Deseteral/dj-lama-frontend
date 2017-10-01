@@ -8,10 +8,6 @@
   background-color: var(--color-navigator);
 }
 
-.child {
-  flex: 1;
-}
-
 @media (min-width: 576px) {
   .root {
     top: 0;
@@ -19,11 +15,5 @@
     width: var(--navigator-size);
     height: 100%;
     flex-direction: column;
-  }
-
-  .child {
-    flex: 0 1 auto;
-    width: 100%;
-    height: var(--navigator-size);
   }
 }
