@@ -6,13 +6,13 @@
   flex: 1;
   text-decoration: none;
   transition:
-    flex 300ms cubic-bezier(0.645, 0.045, 0.355, 1),
-    height 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  opacity: 0.57;
+    flex 300ms var(--animation),
+    height 300ms var(--animation);
+  opacity: 0.50;
 
   &--active {
     flex: 2;
-    opacity: 0.97;
+    opacity: 1;
   }
 }
 
@@ -20,7 +20,7 @@
   font-size: 13px;
   color: white;
   opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 300ms var(--animation);
 }
 
 .link--active .title {

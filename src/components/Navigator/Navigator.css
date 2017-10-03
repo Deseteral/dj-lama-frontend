@@ -5,7 +5,7 @@
   bottom: 0;
   width: 100%;
   height: var(--navigator-size);
-  transition: background-color, 300ms;
+  transition: background-color 400ms var(--animation);
 }
 
 .color{
