@@ -8,6 +8,16 @@ import LibraryPage from '../LibraryPage/LibraryPage';
 import QueuePage from '../QueuePage/QueuePage';
 import styles from './App.css';
 
+function getCurrentUrl() {
+  const pathname = window.location.pathname;
+
+  if (pathname === '/') {
+    return '/status';
+  }
+
+  return pathname;
+}
+
 function App({ store }) {
   return (
     <Provider store={store}>
@@ -19,7 +29,7 @@ function App({ store }) {
             component={(() => <Redirect to="/status" />)}
           />
           <Navigator
-            getCurrentUrl={(() => window.location.pathname)}
+            getCurrentUrl={getCurrentUrl}
           />
           <div className={styles['container']}>
             <Switch>
