@@ -16,6 +16,8 @@ describe('NavigatorButton component', () => {
       .toBe(true);
     expect(wrapper.find('NavLink').prop('to'))
       .toBe('/status');
+    expect(wrapper.find('NavLink').prop('activeClassName'))
+      .toBe('link--active');
   });
 
   it('should render icon', () => {

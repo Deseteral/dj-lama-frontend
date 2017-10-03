@@ -2,7 +2,8 @@
   --navigator-size: 72px;
 
   --color-background: #37474F;
-  --color-navigator: #607D8B;
+
+  --animation: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 body {

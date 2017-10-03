@@ -8,7 +8,7 @@ function NavigatorButton({ name, to }) {
   const iconClassName = `icon--${name.toLowerCase()}`;
 
   return (
-    <NavLink to={to} className={styles['link']}>
+    <NavLink to={to} className={styles['link']} activeClassName={styles['link--active']}>
       <div className={css(styles['icon'], styles[iconClassName])} />
       <div className={styles['title']}>
         {name}
