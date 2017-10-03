@@ -16,9 +16,9 @@ describe('Navigator component', () => {
 
   describe('buttons', () => {
     [
-      { name: 'Status', to: '/status', activeClassname: 'color--status' },
-      { name: 'Library', to: '/library', activeClassname: 'color--library' },
-      { name: 'Queue', to: '/queue', activeClassname: 'color--queue' },
+      { name: 'Status', to: '/status', activeClassName: 'color--status' },
+      { name: 'Library', to: '/library', activeClassName: 'color--library' },
+      { name: 'Queue', to: '/queue', activeClassName: 'color--queue' },
     ].forEach((testCase, index) => {
       it(`should render ${testCase.name} button`, () => {
         // when
@@ -31,7 +31,7 @@ describe('Navigator component', () => {
         // then
         expect(buttonWrapper.prop('name')).toBe(testCase.name);
         expect(buttonWrapper.prop('to')).toBe(testCase.to);
-        expect(wrapper.find('.root').hasClass(testCase.activeClassname));
+        expect(wrapper.find('.root').hasClass(testCase.activeClassName));
       });
     });
   });
