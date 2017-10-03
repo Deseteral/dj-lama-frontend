@@ -18,7 +18,7 @@ function App({ store }) {
             exact
             component={(() => <Redirect to="/status" />)}
           />
-          <Navigator />
+          <Navigator getCurrentUrl={(() => window.location.pathname)} />
           <div className={styles['container']}>
             <Switch>
               <Route path="/status" component={StatusPage} />

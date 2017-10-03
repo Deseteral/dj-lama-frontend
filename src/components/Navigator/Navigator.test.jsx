@@ -5,7 +5,10 @@ import Navigator from './Navigator';
 describe('Navigator component', () => {
   it('should render', () => {
     // when
-    const wrapper = shallow(<Navigator />);
+    const wrapper = shallow(
+      <Navigator
+        getCurrentUrl={(() => '/status')}
+      />);
 
     // then
     expect(wrapper.find('.root').length).toBe(1);
@@ -13,18 +16,22 @@ describe('Navigator component', () => {
 
   describe('buttons', () => {
     [
-      { name: 'Status', to: '/status' },
-      { name: 'Library', to: '/library' },
-      { name: 'Queue', to: '/queue' },
+      { name: 'Status', to: '/status', activeClassname: 'color--status' },
+      { name: 'Library', to: '/library', activeClassname: 'color--library' },
+      { name: 'Queue', to: '/queue', activeClassname: 'color--queue' },
     ].forEach((testCase, index) => {
       it(`should render ${testCase.name} button`, () => {
         // when
-        const wrapper = shallow(<Navigator />);
+        const wrapper = shallow(
+          <Navigator
+            getCurrentUrl={(() => `${testCase.to}/something`)}
+          />);
         const buttonWrapper = wrapper.find('NavigatorButton').at(index);
 
         // then
         expect(buttonWrapper.prop('name')).toBe(testCase.name);
         expect(buttonWrapper.prop('to')).toBe(testCase.to);
+        expect(wrapper.find('.root').hasClass(testCase.activeClassname));
       });
     });
   });
