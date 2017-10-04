@@ -1,7 +1,12 @@
 import React from 'react';
+import Card from '../Card/Card';
 
 function QueuePage() {
-  return <div>Queue page</div>;
+  return (
+    <Card>
+      Queue page
+    </Card>
+  );
 }
 
 export default QueuePage;

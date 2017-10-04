@@ -1,8 +1,11 @@
 import React from 'react';
+import Card from '../Card/Card';
 
 function StatusPage() {
   return (
-    <div>Status page</div>
+    <Card>
+      Status page
+    </Card>
   );
 }
 
