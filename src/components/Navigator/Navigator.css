@@ -1,7 +1,7 @@
 .root {
   display: flex;
   flex-direction: row;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: var(--navigator-size);
