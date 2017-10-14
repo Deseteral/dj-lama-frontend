@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "@deseteral/react-scripts": "1.0.13-7",
+    "@deseteral/react-scripts": "1.0.13-9",
     "classnames": "2.2.5",
     "prop-types": "15.6.0",
     "react": "15.6.1",

@@ -1,5 +1,3 @@
-const SERVICE_URL = 'http://localhost:8080';
-
 function getStatus() {
   return new Promise((resolve, reject) => {
     fetch(`${SERVICE_URL}/status`)
