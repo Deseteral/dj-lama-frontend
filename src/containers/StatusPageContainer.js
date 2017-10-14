@@ -11,6 +11,7 @@ function mapStateToProps(state) {
   return {
     songTitle: playing ? playing.title : null,
     songArtist: playing ? playing.artist : null,
+    songCount: state.status.songCount,
   };
 }
 
