@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { statusFetch } from '../actions/status';
 import StatusPage from '../components/StatusPage/StatusPage';
 
 function mapStateToProps(state) {
@@ -15,8 +16,10 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    refreshStatus: () => dispatch(statusFetch()),
+  };
 }
 
 const StatusPageContainer = connect(

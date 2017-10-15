@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import saga from './saga';
-import { statusFetch } from './actions/status';
 import App from './components/App/App';
 import reducer from './reducer';
 import './index.css';
@@ -20,8 +19,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(saga);
-
-store.dispatch(statusFetch());
 
 ReactDOM.render(
   <App store={store} />,
