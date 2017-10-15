@@ -27,6 +27,7 @@ class StatusPage extends Component {
     );
 
     this.props.refreshStatus();
+    this.calculateOnAirTime();
   }
 
   componentWillUnmount() {
@@ -37,10 +38,11 @@ class StatusPage extends Component {
   calculateOnAirTime() {
     if (!this.props.onAirSince) {
       this.setState({ onAirTime: null });
+      return;
     }
 
     const startTime = new Date(this.props.onAirSince).getTime();
-    const currentTime = new Date().getTime();
+    const currentTime = this.props.getCurrentTime();
     const timeDiff = currentTime - startTime;
     const duration = formatDuration(timeDiff);
 
@@ -93,6 +95,7 @@ StatusPage.propTypes = {
   queueLength: PropTypes.number,
   onAirSince: PropTypes.string,
   refreshStatus: PropTypes.func.isRequired,
+  getCurrentTime: PropTypes.func,
 };
 
 StatusPage.defaultProps = {
@@ -101,6 +104,7 @@ StatusPage.defaultProps = {
   songCount: null,
   queueLength: null,
   onAirSince: null,
+  getCurrentTime: (() => new Date().getTime()),
 };
 
 export default StatusPage;
