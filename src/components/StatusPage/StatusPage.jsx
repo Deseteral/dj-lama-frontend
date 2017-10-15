@@ -48,7 +48,7 @@ class StatusPage extends Component {
   }
 
   render() {
-    const { songTitle, songArtist, songCount } = this.props;
+    const { songTitle, songArtist, songCount, queueLength } = this.props;
     const { onAirTime } = this.state;
 
     return (
@@ -71,9 +71,14 @@ class StatusPage extends Component {
             <div className={styles['timer']}>{onAirTime}</div>
           </Card>
         }
-        {Number.isInteger(songCount) &&
+        {(Number.isInteger(songCount) || Number.isInteger(queueLength)) &&
           <Card>
-            <div>Number of songs in library: {songCount}</div>
+            {Number.isInteger(songCount) &&
+              <div>Number of songs in library: {songCount}</div>
+            }
+            {Number.isInteger(queueLength) &&
+              <div>Number of songs in queue: {queueLength}</div>
+            }
           </Card>
         }
       </div>
@@ -85,6 +90,7 @@ StatusPage.propTypes = {
   songTitle: PropTypes.string,
   songArtist: PropTypes.string,
   songCount: PropTypes.number,
+  queueLength: PropTypes.number,
   onAirSince: PropTypes.string,
   refreshStatus: PropTypes.func.isRequired,
 };
@@ -93,6 +99,7 @@ StatusPage.defaultProps = {
   songTitle: null,
   songArtist: null,
   songCount: null,
+  queueLength: null,
   onAirSince: null,
 };
 

@@ -13,6 +13,7 @@ function mapStateToProps(state) {
     songTitle: playing ? playing.title : null,
     songArtist: playing ? playing.artist : null,
     songCount: state.status.songCount,
+    queueLength: state.status.queueLength,
     onAirSince: state.status.onAirSince,
   };
 }
