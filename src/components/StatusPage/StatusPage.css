@@ -6,3 +6,26 @@
 .artist {
   font-size: 24px;
 }
+
+.on-air-container {
+  display: flex;
+  align-items: center;
+}
+
+.on-air {
+  color: #E53935;
+  font-size: 36px;
+  margin-right: 16px;
+}
+
+.circle {
+  background-color: #E53935;
+	border-radius: 50%;
+	width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.timer {
+  font-size: 24px;
+}

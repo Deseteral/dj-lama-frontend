@@ -1,20 +1,55 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import formatDuration from 'format-duration';
 import Card from '../Card/Card';
 import styles from './StatusPage.css';
 
 const REFRESH_INTERVAL_SECONDS = 5;
 
 class StatusPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      onAirTime: null,
+    };
+  }
+
   componentDidMount() {
-    setInterval(
+    this.statusRefreshInterval = setInterval(
       () => this.props.refreshStatus(),
       1000 * REFRESH_INTERVAL_SECONDS,
     );
+
+    this.timerRefreshInterval = setInterval(
+      () => this.calculateOnAirTime(),
+      1000,
+    );
+
+    this.props.refreshStatus();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.statusRefreshInterval);
+    clearInterval(this.timerRefreshInterval);
+  }
+
+  calculateOnAirTime() {
+    if (!this.props.onAirSince) {
+      this.setState({ onAirTime: null });
+    }
+
+    const startTime = new Date(this.props.onAirSince).getTime();
+    const currentTime = new Date().getTime();
+    const timeDiff = currentTime - startTime;
+    const duration = formatDuration(timeDiff);
+
+    this.setState({ onAirTime: duration });
   }
 
   render() {
     const { songTitle, songArtist, songCount } = this.props;
+    const { onAirTime } = this.state;
 
     return (
       <div>
@@ -27,6 +62,13 @@ class StatusPage extends Component {
             <div className={styles['artist']}>
               {songArtist}
             </div>
+          </Card>
+        }
+        {onAirTime &&
+          <Card className={styles['on-air-container']}>
+            <div className={styles['circle']} />
+            <div className={styles['on-air']}>ON AIR</div>
+            <div className={styles['timer']}>{onAirTime}</div>
           </Card>
         }
         {Number.isInteger(songCount) &&
@@ -43,6 +85,7 @@ StatusPage.propTypes = {
   songTitle: PropTypes.string,
   songArtist: PropTypes.string,
   songCount: PropTypes.number,
+  onAirSince: PropTypes.string,
   refreshStatus: PropTypes.func.isRequired,
 };
 
@@ -50,6 +93,7 @@ StatusPage.defaultProps = {
   songTitle: null,
   songArtist: null,
   songCount: null,
+  onAirSince: null,
 };
 
 export default StatusPage;

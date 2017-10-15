@@ -6,6 +6,7 @@
   "dependencies": {
     "@deseteral/react-scripts": "1.0.13-9",
     "classnames": "2.2.5",
+    "format-duration": "1.0.0",
     "prop-types": "15.6.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
