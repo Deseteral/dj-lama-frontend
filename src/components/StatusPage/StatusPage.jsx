@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import formatDuration from 'format-duration';
+import formatDuration from '../../utils/format-duration';
 import Card from '../Card/Card';
 import styles from './StatusPage.css';
 

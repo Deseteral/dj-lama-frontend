@@ -61,7 +61,7 @@ describe('StatusPage component', () => {
       expect(card.prop('className')).toBe('on-air-container');
       expect(card.find('.circle').length).toBe(1);
       expect(card.find('.on-air').text()).toBe('ON AIR');
-      expect(card.find('.timer').text()).toBe('1:05');
+      expect(card.find('.timer').text()).toBe('00:01:05');
     });
 
     it('should not render when there is no start time', () => {
