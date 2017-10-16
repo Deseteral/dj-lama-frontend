@@ -55,6 +55,13 @@ class StatusPage extends Component {
 
     return (
       <div>
+        <Card
+          className={styles['app-card']}
+          transparent
+        >
+          <div className={styles['logo']} />
+          <div className={styles['app-name']}>DJ Lama</div>
+        </Card>
         {(songTitle && songArtist) &&
           <Card>
             <div>Currently playing...</div>

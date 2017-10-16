@@ -4,9 +4,15 @@ import css from 'classnames';
 import styles from './Card.css';
 
 function Card(props) {
+  const cardClassName = css(
+    props.className,
+    styles['card'],
+    props.transparent ? styles['card--transparent'] : null,
+  );
+
   return (
     <div className={styles['container']}>
-      <div className={css(props.className, styles['card'])}>
+      <div className={cardClassName}>
         {props.children}
       </div>
     </div>
@@ -16,10 +22,12 @@ function Card(props) {
 Card.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  transparent: PropTypes.bool,
 };
 
 Card.defaultProps = {
   className: '',
+  transparent: false,
 };
 
 export default Card;

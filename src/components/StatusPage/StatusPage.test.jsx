@@ -12,6 +12,32 @@ const DEFAULT_PROPS = {
 };
 
 describe('StatusPage component', () => {
+  describe('app info', () => {
+    it('should render logo', () => {
+      // when
+      const wrapper = shallow(
+        <StatusPage
+          {...DEFAULT_PROPS}
+        />);
+
+      // then
+      const card = wrapper.find('Card').at(0);
+      expect(card.find('.logo').length).toBe(1);
+    });
+
+    it('should render app name', () => {
+      // when
+      const wrapper = shallow(
+        <StatusPage
+          {...DEFAULT_PROPS}
+        />);
+
+      // then
+      const card = wrapper.find('Card').at(0);
+      expect(card.find('.app-name').text()).toBe('DJ Lama');
+    });
+  });
+
   describe('song info', () => {
     it('should render', () => {
       // when
@@ -21,7 +47,7 @@ describe('StatusPage component', () => {
         />);
 
       // then
-      const card = wrapper.find('Card').at(0);
+      const card = wrapper.find('Card').at(1);
       expect(card.find('.title').text())
         .toBe('test song title');
 
@@ -57,7 +83,7 @@ describe('StatusPage component', () => {
         />);
 
       // then
-      const card = wrapper.find('Card').at(1);
+      const card = wrapper.find('Card').at(2);
       expect(card.prop('className')).toBe('on-air-container');
       expect(card.find('.circle').length).toBe(1);
       expect(card.find('.on-air').text()).toBe('ON AIR');
@@ -87,7 +113,7 @@ describe('StatusPage component', () => {
         />);
 
       // then
-      const card = wrapper.find('Card').at(2);
+      const card = wrapper.find('Card').at(3);
 
       expect(card.find('div').at(0).text())
         .toBe('Number of songs in library: 12');
@@ -106,7 +132,7 @@ describe('StatusPage component', () => {
         />);
 
       // then
-      expect(wrapper.find('Card').length).toBe(2);
+      expect(wrapper.find('Card').length).toBe(3);
     });
 
     it('should render song count', () => {
@@ -118,7 +144,7 @@ describe('StatusPage component', () => {
         />);
 
       // then
-      const card = wrapper.find('Card').at(2);
+      const card = wrapper.find('Card').at(3);
 
       expect(card.find('div').length).toBe(1);
       expect(card.find('div').text())
@@ -134,7 +160,7 @@ describe('StatusPage component', () => {
         />);
 
       // then
-      const card = wrapper.find('Card').at(2);
+      const card = wrapper.find('Card').at(3);
 
       expect(card.find('div').length).toBe(1);
       expect(card.find('div').text())

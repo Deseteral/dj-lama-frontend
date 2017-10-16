@@ -37,4 +37,16 @@ describe('Card component', () => {
     expect(wrapper.find('.card').hasClass('test-class-name'))
       .toBe(true);
   });
+
+  it('should be transparent', () => {
+    // when
+    const wrapper = shallow(
+      <Card transparent>
+        <div>child</div>
+      </Card>);
+
+    // then
+    expect(wrapper.find('.card').hasClass('card--transparent'))
+      .toBe(true);
+  });
 });

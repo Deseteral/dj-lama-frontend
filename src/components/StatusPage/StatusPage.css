@@ -1,3 +1,24 @@
+.app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -36px;
+}
+
+.logo {
+  width: 256px;
+  height: 315px;
+  background-size: 256px;
+  background-image: svg-load('logo.svg');
+  background-repeat: no-repeat;
+}
+
+.app-name {
+  font-family: 'Lobster';
+  font-size: 64px;
+  color: #FFA000;
+}
+
 .title {
   font-size: 48px;
   margin-top: 8px;
