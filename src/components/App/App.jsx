@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navigator from '../Navigator/Navigator';
-import StatusPage from '../StatusPage/StatusPage';
+import StatusPageContainer from '../../containers/StatusPageContainer';
 import LibraryPage from '../LibraryPage/LibraryPage';
 import QueuePage from '../QueuePage/QueuePage';
 import styles from './App.css';
@@ -35,7 +35,7 @@ function App({ store }) {
           />
           <div className={styles['container']}>
             <Switch>
-              <Route path="/status" component={StatusPage} />
+              <Route path="/status" component={StatusPageContainer} />
               <Route path="/library" component={LibraryPage} />
               <Route path="/queue" component={QueuePage} />
             </Switch>

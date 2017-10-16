@@ -1,0 +1,52 @@
+.app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -36px;
+}
+
+.logo {
+  width: 256px;
+  height: 315px;
+  background-size: 256px;
+  background-image: svg-load('logo.svg');
+  background-repeat: no-repeat;
+}
+
+.app-name {
+  font-family: 'Lobster';
+  font-size: 64px;
+  color: #FFA000;
+}
+
+.title {
+  font-size: 48px;
+  margin-top: 8px;
+}
+
+.artist {
+  font-size: 24px;
+}
+
+.on-air-container {
+  display: flex;
+  align-items: center;
+}
+
+.on-air {
+  color: #E53935;
+  font-size: 36px;
+  margin-right: 16px;
+}
+
+.circle {
+  background-color: #E53935;
+	border-radius: 50%;
+	width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.timer {
+  font-size: 24px;
+}

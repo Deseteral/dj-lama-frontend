@@ -13,6 +13,10 @@
   border-radius: 8px;
 }
 
+.card--transparent {
+  background-color: transparent;
+}
+
 @media (min-width: 576px) {
   .card {
     margin: 16px 16px 0 16px;
