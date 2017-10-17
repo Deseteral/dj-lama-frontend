@@ -7,9 +7,7 @@ import saga from './saga';
 import App from './components/App/App';
 import reducer from './reducer';
 import './index.css';
-// import registerServiceWorker from './registerServiceWorker';
-
-// registerServiceWorker();
+import { libraryFetch } from './actions/library';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -19,6 +17,8 @@ const store = createStore(
 );
 
 sagaMiddleware.run(saga);
+
+store.dispatch(libraryFetch());
 
 ReactDOM.render(
   <App store={store} />,

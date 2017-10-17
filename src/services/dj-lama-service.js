@@ -7,9 +7,21 @@ function getStatus() {
   });
 }
 
+function getLibrary() {
+  return new Promise((resolve, reject) => {
+    fetch(`${SERVICE_URL}/songs`)
+      .then(data => data.json())
+      .then(library => resolve(library))
+      .catch(e => reject(e));
+  });
+}
+
 const DJLamaService = {
   status: {
     get: getStatus,
+  },
+  library: {
+    get: getLibrary,
   },
 };
 

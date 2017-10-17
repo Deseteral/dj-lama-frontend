@@ -1,5 +1,5 @@
 .container {
-  padding-bottom: 90px;
+  padding-bottom: calc(--navigator-size + 16px);
 }
 
 @media (min-width: 576px) {
