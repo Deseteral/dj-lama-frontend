@@ -5,7 +5,7 @@ import {
 function library(state = [], action) {
   switch (action.type) {
     case LIBRARY_FETCH_SUCCEEDED:
-      return Object.assign({}, action.payload);
+      return action.payload.slice();
     default:
       return state;
   }

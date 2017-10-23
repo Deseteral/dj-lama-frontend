@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import Navigator from '../Navigator/Navigator';
 import StatusPageContainer from '../../containers/StatusPageContainer';
-import LibraryPage from '../LibraryPage/LibraryPage';
+import LibraryPageContainer from '../../containers/LibraryPageContainer';
 import QueuePage from '../QueuePage/QueuePage';
 import styles from './App.css';
 
@@ -36,7 +36,7 @@ function App({ store }) {
           <div className={styles['container']}>
             <Switch>
               <Route path="/status" component={StatusPageContainer} />
-              <Route path="/library" component={LibraryPage} />
+              <Route path="/library" component={LibraryPageContainer} />
               <Route path="/queue" component={QueuePage} />
             </Switch>
           </div>
