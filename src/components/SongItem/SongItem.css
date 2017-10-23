@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  border-top: 2px #546E7A solid;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist {
+  font-size: 12px;
+  opacity: 0.75;
+}
