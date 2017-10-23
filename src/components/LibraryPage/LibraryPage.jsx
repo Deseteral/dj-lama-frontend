@@ -9,7 +9,6 @@ function LibraryPage(props) {
       {props.songs.map(s => (
         <SongItem
           key={s.id}
-          id={s.id}
           title={s.title}
           artist={s.artist}
         />

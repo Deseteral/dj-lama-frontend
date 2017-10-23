@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SongItem.css';
 
-function SongItem({ id, title, artist }) {
+function SongItem({ title, artist }) {
   return (
     <div className={styles['root']}>
       <div className={styles['info']}>
@@ -14,7 +14,6 @@ function SongItem({ id, title, artist }) {
 }
 
 SongItem.propTypes = {
-  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
 };
