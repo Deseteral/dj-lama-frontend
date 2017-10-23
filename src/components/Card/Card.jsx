@@ -13,6 +13,9 @@ function Card(props) {
   return (
     <div className={styles['container']}>
       <div className={cardClassName}>
+        {props.title &&
+          <h2 className={styles['title']}>{props.title}</h2>
+        }
         {props.children}
       </div>
     </div>
@@ -23,11 +26,13 @@ Card.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   transparent: PropTypes.bool,
+  title: PropTypes.string,
 };
 
 Card.defaultProps = {
   className: '',
   transparent: false,
+  title: null,
 };
 
 export default Card;

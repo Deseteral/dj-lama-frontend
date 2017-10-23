@@ -5,7 +5,7 @@ import SongItem from '../SongItem/SongItem';
 
 function LibraryPage(props) {
   return (
-    <Card>
+    <Card title="Library">
       {props.songs.map(s => (
         <SongItem
           key={s.id}
