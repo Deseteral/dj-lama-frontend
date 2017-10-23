@@ -16,12 +16,22 @@ function getLibrary() {
   });
 }
 
+function postQueue(songId) {
+  return new Promise((resolve, reject) => {
+    fetch(`${SERVICE_URL}/queue/${songId}`, { method: 'POST' })
+      .catch(e => reject(e));
+  });
+}
+
 const DJLamaService = {
   status: {
     get: getStatus,
   },
   library: {
     get: getLibrary,
+  },
+  queue: {
+    post: postQueue,
   },
 };
 

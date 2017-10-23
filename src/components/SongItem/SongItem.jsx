@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SongItem.css';
 
-function SongItem({ title, artist }) {
+function SongItem({ title, artist, onClick }) {
   return (
-    <div className={styles['root']}>
+    <div className={styles['root']} onClick={onClick}>
       <div className={styles['info']}>
         <div>{title}</div>
         <div className={styles['artist']}>{artist}</div>
@@ -16,6 +16,7 @@ function SongItem({ title, artist }) {
 SongItem.propTypes = {
   title: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default SongItem;
