@@ -9,6 +9,11 @@ import {
   libraryFetchSucceeded,
   libraryFetchFailed,
 } from '../actions/library';
+import {
+  QUEUE_FETCH_REQUESTED,
+  queueFetchSucceeded,
+  queueFetchFailed,
+} from '../actions/queue';
 import DJLamaService from '../services/dj-lama-service';
 
 function* fetchStatus() {
@@ -29,9 +34,19 @@ function* fetchLibrary() {
   }
 }
 
+function* fetchQueue() {
+  try {
+    const queue = yield call(DJLamaService.queue.get);
+    yield put(queueFetchSucceeded(queue));
+  } catch (e) {
+    yield put(queueFetchFailed(e.message));
+  }
+}
+
 function* saga() {
   yield takeEvery(STATUS_FETCH_REQUESTED, fetchStatus);
   yield takeEvery(LIBRARY_FETCH_REQUESTED, fetchLibrary);
+  yield takeEvery(QUEUE_FETCH_REQUESTED, fetchQueue);
 }
 
 export default saga;

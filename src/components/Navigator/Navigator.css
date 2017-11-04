@@ -5,6 +5,7 @@
   bottom: 0;
   width: 100%;
   height: var(--navigator-size);
+  z-index: 100;
   transition: background-color 400ms var(--animation);
 }
 
