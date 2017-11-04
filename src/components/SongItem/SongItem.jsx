@@ -4,7 +4,7 @@ import styles from './SongItem.css';
 
 function SongItem({ title, artist, onClick }) {
   return (
-    <div className={styles['root']} onClick={onClick}>
+    <div className={styles['root']} onClick={onClick} role="button" tabIndex="0">
       <div className={styles['info']}>
         <div>{title}</div>
         <div className={styles['artist']}>{artist}</div>
