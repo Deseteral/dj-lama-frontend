@@ -5,7 +5,7 @@ import LibraryPage from '../components/LibraryPage/LibraryPage';
 
 function mapDispatchToProps(dispatch) {
   return {
-    refreshStatus: () => dispatch(libraryFetch()),
+    refreshLibrary: () => dispatch(libraryFetch()),
   };
 }
 

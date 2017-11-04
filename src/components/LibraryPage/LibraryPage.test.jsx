@@ -8,6 +8,7 @@ describe('LibraryPage component', () => {
     const wrapper = shallow(
       <LibraryPage
         songs={[]}
+        refreshLibrary={(() => {})}
       />);
 
     // then
@@ -28,6 +29,7 @@ describe('LibraryPage component', () => {
     const wrapper = shallow(
       <LibraryPage
         songs={songs}
+        refreshLibrary={(() => {})}
       />);
 
     // then
