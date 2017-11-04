@@ -24,6 +24,18 @@ describe('SongItem component', () => {
       );
   });
 
+  it('should render play count', () => {
+    // when
+    const wrapper = shallow(
+      <SongItem
+        {...DEFAULT_PROPS}
+      />);
+
+    // then
+    expect(wrapper.find('.small').at(1).text())
+      .toBe('played: 12');
+  });
+
   it('should call onClick', () => {
     // given
     const onClick = jest.fn();

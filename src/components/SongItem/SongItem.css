@@ -25,10 +25,11 @@
 .info {
   display: flex;
   flex-direction: column;
+  flex: 1;
   user-select: none;
 }
 
-.artist {
+.small {
   font-size: 12px;
   opacity: 0.75;
 }
