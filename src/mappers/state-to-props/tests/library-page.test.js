@@ -15,4 +15,19 @@ describe('Library page - map state to props', () => {
       songs: ['song 1', 'song 2', 'song 3'],
     });
   });
+
+  it('should map state when library is not an array', () => {
+    // given
+    const state = {
+      library: null,
+    };
+
+    // when
+    const props = mapStateToProps(state);
+
+    // then
+    expect(props).toEqual({
+      songs: [],
+    });
+  });
 });

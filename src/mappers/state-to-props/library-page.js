@@ -1,6 +1,6 @@
 function mapStateToProps(state) {
   return {
-    songs: state.library,
+    songs: Array.isArray(state.library) ? state.library : [],
   };
 }
 
