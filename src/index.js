@@ -7,9 +7,6 @@ import saga from './saga';
 import App from './components/App/App';
 import reducer from './reducer';
 import './index.css';
-// import registerServiceWorker from './registerServiceWorker';
-
-// registerServiceWorker();
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

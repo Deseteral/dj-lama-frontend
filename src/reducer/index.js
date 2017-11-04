@@ -1,20 +1,10 @@
-import {
-  STATUS_FETCH_SUCCEEDED,
-} from '../actions/status';
+import { combineReducers } from 'redux';
+import status from './status';
+import library from './library';
 
-const INITIAL_STATE = {
-  status: null,
-};
+const reducers = combineReducers({
+  status,
+  library,
+});
 
-function reducer(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case STATUS_FETCH_SUCCEEDED:
-      return {
-        status: Object.assign({}, action.payload),
-      };
-    default:
-      return state;
-  }
-}
-
-export default reducer;
+export default reducers;

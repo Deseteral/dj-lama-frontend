@@ -49,4 +49,28 @@ describe('Card component', () => {
     expect(wrapper.find('.card').hasClass('card--transparent'))
       .toBe(true);
   });
+
+  describe('title', () => {
+    it('should not render', () => {
+      // when
+      const wrapper = shallow(
+        <Card>
+          <div>child</div>
+        </Card>);
+
+      // then
+      expect(wrapper.find('h2.title').length).toBe(0);
+    });
+
+    it('should render', () => {
+      // when
+      const wrapper = shallow(
+        <Card title="Test title">
+          <div>child</div>
+        </Card>);
+
+      // then
+      expect(wrapper.find('h2.title').text()).toBe('Test title');
+    });
+  });
 });

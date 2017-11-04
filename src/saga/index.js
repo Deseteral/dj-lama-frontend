@@ -4,6 +4,11 @@ import {
   statusFetchSucceeded,
   statusFetchFailed,
 } from '../actions/status';
+import {
+  LIBRARY_FETCH_REQUESTED,
+  libraryFetchSucceeded,
+  libraryFetchFailed,
+} from '../actions/library';
 import DJLamaService from '../services/dj-lama-service';
 
 function* fetchStatus() {
@@ -15,8 +20,18 @@ function* fetchStatus() {
   }
 }
 
+function* fetchLibrary() {
+  try {
+    const library = yield call(DJLamaService.library.get);
+    yield put(libraryFetchSucceeded(library));
+  } catch (e) {
+    yield put(libraryFetchFailed(e.message));
+  }
+}
+
 function* saga() {
   yield takeEvery(STATUS_FETCH_REQUESTED, fetchStatus);
+  yield takeEvery(LIBRARY_FETCH_REQUESTED, fetchLibrary);
 }
 
 export default saga;

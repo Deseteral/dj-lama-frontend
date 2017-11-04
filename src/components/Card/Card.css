@@ -17,6 +17,13 @@
   background-color: transparent;
 }
 
+.title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 32px;
+  user-select: none;
+}
+
 @media (min-width: 576px) {
   .card {
     margin: 16px 16px 0 16px;
