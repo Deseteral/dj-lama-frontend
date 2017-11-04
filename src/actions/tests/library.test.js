@@ -5,7 +5,7 @@ import {
   LIBRARY_FETCH_REQUESTED,
   LIBRARY_FETCH_SUCCEEDED,
   LIBRARY_FETCH_FAILED,
-} from '../status';
+} from '../library';
 
 describe('Library action creators', () => {
   it('should create fetch action', () => {
