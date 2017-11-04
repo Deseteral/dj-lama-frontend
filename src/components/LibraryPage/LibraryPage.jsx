@@ -7,14 +7,17 @@ import SongItem from '../SongItem/SongItem';
 function LibraryPage(props) {
   return (
     <Card title="Library">
-      {props.songs.map(s => (
-        <SongItem
-          key={s.id}
-          title={s.title}
-          artist={s.artist}
-          onClick={() => DJLamaService.queue.post(s.id)}
-        />
-      ))}
+      <section>
+        {props.songs.map(s => (
+          <SongItem
+            key={s.id}
+            title={s.title}
+            artist={s.artist}
+            playCount={s.playCount}
+            onClick={() => DJLamaService.queue.post(s.id)}
+          />
+        ))}
+      </section>
     </Card>
   );
 }

@@ -7,15 +7,19 @@
   border-top: 2px #546E7A solid;
   transition: background-color 400ms var(--animation);
   cursor: pointer;
-}
 
-.root:hover {
-  background-color: #546E7A;
-}
+  &:first-child {
+    border-top: none;
+  }
 
-.root:active {
-  background-color: #607D8B;
-  transition: background-color 0ms var(--animation);
+  &:hover {
+    background-color: #546E7A;
+  }
+
+  &:active {
+    background-color: #607D8B;
+    transition: background-color 0ms var(--animation);
+  }
 }
 
 .info {
