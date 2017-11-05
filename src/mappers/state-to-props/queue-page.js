@@ -1,6 +1,11 @@
 function mapStateToProps(state) {
+  const currentlyPlaying = state.status ?
+    (state.status.currentlyPlaying || null)
+    : null;
+
   return {
-    songs: Array.isArray(state.queue) ? state.queue : [],
+    currentlyPlaying,
+    queue: Array.isArray(state.queue) ? state.queue : [],
   };
 }
 

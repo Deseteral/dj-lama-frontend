@@ -7,7 +7,8 @@ describe('QueuePage component', () => {
     // when
     const wrapper = shallow(
       <QueuePage
-        songs={[]}
+        currentlyPlaying={null}
+        queue={[]}
         refreshQueue={(() => {})}
       />);
 
@@ -18,7 +19,14 @@ describe('QueuePage component', () => {
 
   it('should render song list', () => {
     // given
-    const songs = [
+    const currentlyPlaying = {
+      id: 'id0',
+      title: 'Title 0',
+      artist: 'Artist 0',
+      playCount: 9,
+    };
+
+    const queue = [
       { id: 'id1', title: 'Title 1', artist: 'Artist 1', playCount: 5 },
       { id: 'id2', title: 'Title 2', artist: 'Artist 2', playCount: 8 },
       { id: 'id3', title: 'Title 3', artist: 'Artist 3', playCount: 1 },
@@ -28,16 +36,26 @@ describe('QueuePage component', () => {
     // when
     const wrapper = shallow(
       <QueuePage
-        songs={songs}
+        currentlyPlaying={currentlyPlaying}
+        queue={queue}
         refreshQueue={(() => {})}
       />);
 
     // then
     const listContainer = wrapper.find('Card');
+    const currentlyPlayingItem = listContainer.find('SongItem').at(0);
 
-    expect(listContainer.find('SongItem').length).toBe(songs.length);
-    songs.forEach((s, index) => {
-      const component = listContainer.find('SongItem').at(index);
+    expect(currentlyPlayingItem.props()).toEqual({
+      index: null,
+      title: 'Title 0',
+      artist: 'Artist 0',
+      playCount: 9,
+      onClick: null,
+    });
+
+    expect(listContainer.find('SongItem').length).toBe(queue.length + 1);
+    queue.forEach((s, index) => {
+      const component = listContainer.find('SongItem').at(index + 1);
       const props = component.props();
 
       expect(component.key()).toBe(`${s.id}-${index}`);

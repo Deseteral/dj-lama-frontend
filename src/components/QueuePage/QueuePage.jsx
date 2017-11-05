@@ -20,10 +20,19 @@ class QueuePage extends Component {
   }
 
   render() {
+    const { currentlyPlaying, queue } = this.props;
+
     return (
       <Card title="Queue">
         <section>
-          {this.props.songs.map((s, index) => (
+          {currentlyPlaying &&
+            <SongItem
+              title={currentlyPlaying.title}
+              artist={currentlyPlaying.artist}
+              playCount={currentlyPlaying.playCount}
+            />
+          }
+          {queue.map((s, index) => (
             <SongItem
               key={`${s.id}-${index}`} // eslint-disable-line react/no-array-index-key
               index={(index + 1)}
@@ -39,18 +48,26 @@ class QueuePage extends Component {
 }
 
 QueuePage.propTypes = {
-  songs: PropTypes.arrayOf(
+  currentlyPlaying: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
+    playCount: PropTypes.number.isRequired,
+  }),
+  queue: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       artist: PropTypes.string.isRequired,
+      playCount: PropTypes.number.isRequired,
     }),
   ),
   refreshQueue: PropTypes.func.isRequired,
 };
 
 QueuePage.defaultProps = {
-  songs: [],
+  currentlyPlaying: null,
+  queue: [],
 };
 
 export default QueuePage;
