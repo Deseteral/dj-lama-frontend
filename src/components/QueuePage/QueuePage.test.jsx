@@ -9,7 +9,6 @@ describe('QueuePage component', () => {
       <QueuePage
         currentlyPlaying={null}
         queue={[]}
-        refreshQueue={(() => {})}
       />);
 
     // then
@@ -38,7 +37,6 @@ describe('QueuePage component', () => {
       <QueuePage
         currentlyPlaying={currentlyPlaying}
         queue={queue}
-        refreshQueue={(() => {})}
       />);
 
     // then
