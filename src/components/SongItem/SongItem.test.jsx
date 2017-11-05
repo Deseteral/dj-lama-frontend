@@ -52,4 +52,56 @@ describe('SongItem component', () => {
     // then
     expect(onClick).toHaveBeenCalled();
   });
+
+  describe('interactive', () => {
+    it('should be when onClick is defined', () => {
+      // when
+      const wrapper = shallow(
+        <SongItem
+          {...DEFAULT_PROPS}
+        />);
+
+      // then
+      expect(wrapper.find('.root').length).toBe(1);
+      expect(wrapper.find('.root--interactive').length).toBe(1);
+    });
+
+    it('should not be', () => {
+      // when
+      const wrapper = shallow(
+        <SongItem
+          {...DEFAULT_PROPS}
+          onClick={undefined}
+        />);
+
+      // then
+      expect(wrapper.find('.root').length).toBe(1);
+      expect(wrapper.find('.root--interactive').length).toBe(0);
+    });
+  });
+
+  describe('index', () => {
+    it('should render', () => {
+      // when
+      const wrapper = shallow(
+        <SongItem
+          {...DEFAULT_PROPS}
+          index={10}
+        />);
+
+      // then
+      expect(wrapper.find('.index').text()).toBe('10.');
+    });
+
+    it('should not render', () => {
+      // when
+      const wrapper = shallow(
+        <SongItem
+          {...DEFAULT_PROPS}
+        />);
+
+      // then
+      expect(wrapper.find('.index').length).toBe(0);
+    });
+  });
 });

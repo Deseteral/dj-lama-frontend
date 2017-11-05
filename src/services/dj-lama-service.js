@@ -16,6 +16,15 @@ function getLibrary() {
   });
 }
 
+function getQueue() {
+  return new Promise((resolve, reject) => {
+    fetch(`${SERVICE_URL}/queue`)
+      .then(data => data.json())
+      .then(library => resolve(library))
+      .catch(e => reject(e));
+  });
+}
+
 function postQueue(songId) {
   return new Promise((resolve, reject) => {
     fetch(`${SERVICE_URL}/queue/${songId}`, { method: 'POST' })
@@ -31,6 +40,7 @@ const DJLamaService = {
     get: getLibrary,
   },
   queue: {
+    get: getQueue,
     post: postQueue,
   },
 };

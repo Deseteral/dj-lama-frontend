@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Navigator from '../Navigator/Navigator';
 import StatusPageContainer from '../../containers/StatusPageContainer';
 import LibraryPageContainer from '../../containers/LibraryPageContainer';
-import QueuePage from '../QueuePage/QueuePage';
+import QueuePageContainer from '../../containers/QueuePageContainer';
 import styles from './App.css';
 
 const DEFAULT_ROUTE = '/status';
@@ -37,7 +37,7 @@ function App({ store }) {
             <Switch>
               <Route path="/status" component={StatusPageContainer} />
               <Route path="/library" component={LibraryPageContainer} />
-              <Route path="/queue" component={QueuePage} />
+              <Route path="/queue" component={QueuePageContainer} />
             </Switch>
           </div>
         </div>
