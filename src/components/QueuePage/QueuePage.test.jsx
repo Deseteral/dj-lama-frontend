@@ -63,4 +63,16 @@ describe('QueuePage component', () => {
       expect(props.playCount).toBe(s.playCount);
     });
   });
+
+  it('should render info when queue is empty', () => {
+    // when
+    const wrapper = shallow(
+      <QueuePage
+        currentlyPlaying={null}
+        queue={[]}
+      />);
+
+    // then
+    expect(wrapper.find('section').text()).toBe('There are no songs in the queue!');
+  });
 });

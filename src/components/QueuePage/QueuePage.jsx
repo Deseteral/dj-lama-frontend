@@ -7,6 +7,9 @@ function QueuePage({ currentlyPlaying, queue }) {
   return (
     <Card title="Queue">
       <section>
+        {(!currentlyPlaying && queue.length === 0) &&
+          <div>There are no songs in the queue!</div>
+        }
         {currentlyPlaying &&
           <SongItem
             title={currentlyPlaying.title}
