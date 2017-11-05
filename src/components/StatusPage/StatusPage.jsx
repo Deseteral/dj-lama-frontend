@@ -4,8 +4,6 @@ import formatDuration from '../../utils/format-duration';
 import Card from '../Card/Card';
 import styles from './StatusPage.css';
 
-const REFRESH_INTERVAL_SECONDS = 5;
-
 class StatusPage extends Component {
   constructor(props) {
     super(props);
@@ -16,22 +14,15 @@ class StatusPage extends Component {
   }
 
   componentDidMount() {
-    this.statusRefreshInterval = setInterval(
-      () => this.props.refreshStatus(),
-      1000 * REFRESH_INTERVAL_SECONDS,
-    );
-
     this.timerRefreshInterval = setInterval(
       () => this.calculateOnAirTime(),
       1000,
     );
 
-    this.props.refreshStatus();
     this.calculateOnAirTime();
   }
 
   componentWillUnmount() {
-    clearInterval(this.statusRefreshInterval);
     clearInterval(this.timerRefreshInterval);
   }
 
@@ -101,7 +92,6 @@ StatusPage.propTypes = {
   songCount: PropTypes.number,
   queueLength: PropTypes.number,
   onAirSince: PropTypes.string,
-  refreshStatus: PropTypes.func.isRequired,
   getCurrentTime: PropTypes.func,
 };
 

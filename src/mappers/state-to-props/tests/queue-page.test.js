@@ -12,7 +12,27 @@ describe('Queue page - map state to props', () => {
 
     // then
     expect(props).toEqual({
-      songs: ['song 1', 'song 2', 'song 3'],
+      currentlyPlaying: null,
+      queue: ['song 1', 'song 2', 'song 3'],
+    });
+  });
+
+  it('should add currently playing song', () => {
+    // given
+    const state = {
+      status: {
+        currentlyPlaying: 'song 0',
+      },
+      queue: ['song 1', 'song 2', 'song 3'],
+    };
+
+    // when
+    const props = mapStateToProps(state);
+
+    // then
+    expect(props).toEqual({
+      currentlyPlaying: 'song 0',
+      queue: ['song 1', 'song 2', 'song 3'],
     });
   });
 
@@ -27,7 +47,27 @@ describe('Queue page - map state to props', () => {
 
     // then
     expect(props).toEqual({
-      songs: [],
+      currentlyPlaying: null,
+      queue: [],
+    });
+  });
+
+  it('should map state when queue is not an array and something is playing', () => {
+    // given
+    const state = {
+      status: {
+        currentlyPlaying: 'song 0',
+      },
+      queue: null,
+    };
+
+    // when
+    const props = mapStateToProps(state);
+
+    // then
+    expect(props).toEqual({
+      currentlyPlaying: 'song 0',
+      queue: [],
     });
   });
 });
