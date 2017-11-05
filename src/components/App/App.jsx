@@ -10,8 +10,6 @@ import styles from './App.css';
 
 const DEFAULT_ROUTE = '/status';
 
-const QUEUE_REFRESH_INTERVAL_SECONDS = 5;
-
 class App extends Component {
   static getCurrentUrl() {
     const pathname = window.location.pathname;
@@ -24,23 +22,22 @@ class App extends Component {
   }
 
   static setupRefreshInterval(fn, interval) {
-    setInterval(
+    fn();
+    return setInterval(
       () => fn(),
       1000 * interval,
     );
   }
 
   componentDidMount() {
-    this.queueRefreshInterval = App.setupRefreshInterval(
-      this.props.refreshQueue,
-      QUEUE_REFRESH_INTERVAL_SECONDS,
-    );
-
-    this.props.refreshQueue();
+    this.refreshIntervals = [
+      { fn: this.props.refreshQueue, interval: 5 },
+      { fn: this.props.refreshLibrary, interval: 10 },
+    ].map(ri => App.setupRefreshInterval(ri.fn, ri.interval));
   }
 
   componentWillUnmount() {
-    clearInterval(this.refreshInterval);
+    this.refreshIntervals.forEach(ri => clearInterval(ri));
   }
 
   render() {
@@ -72,6 +69,7 @@ class App extends Component {
 
 App.propTypes = {
   store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  refreshLibrary: PropTypes.func.isRequired,
   refreshQueue: PropTypes.func.isRequired,
 };
 
