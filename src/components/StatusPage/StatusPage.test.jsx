@@ -8,7 +8,6 @@ const DEFAULT_PROPS = {
   songCount: 12,
   queueLength: 2,
   onAirSince: '2017-10-15T14:46:52.000Z',
-  refreshStatus: (() => {}),
 };
 
 describe('StatusPage component', () => {

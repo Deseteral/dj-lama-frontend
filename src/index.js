@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import saga from './saga';
 import App from './components/App/App';
 import reducer from './reducer';
+import { statusFetch } from './actions/status';
 import { libraryFetch } from './actions/library';
 import { queueFetch } from './actions/queue';
 import './index.css';
@@ -22,6 +23,7 @@ sagaMiddleware.run(saga);
 ReactDOM.render(
   <App
     store={store}
+    refreshStatus={() => store.dispatch(statusFetch())}
     refreshLibrary={() => store.dispatch(libraryFetch())}
     refreshQueue={() => store.dispatch(queueFetch())}
   />,

@@ -31,6 +31,7 @@ class App extends Component {
 
   componentDidMount() {
     this.refreshIntervals = [
+      { fn: this.props.refreshStatus, interval: 5 },
       { fn: this.props.refreshQueue, interval: 5 },
       { fn: this.props.refreshLibrary, interval: 10 },
     ].map(ri => App.setupRefreshInterval(ri.fn, ri.interval));
@@ -69,6 +70,7 @@ class App extends Component {
 
 App.propTypes = {
   store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  refreshStatus: PropTypes.func.isRequired,
   refreshLibrary: PropTypes.func.isRequired,
   refreshQueue: PropTypes.func.isRequired,
 };
