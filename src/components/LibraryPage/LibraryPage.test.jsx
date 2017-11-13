@@ -15,6 +15,17 @@ describe('LibraryPage component', () => {
     expect(wrapper.find('Card').prop('title')).toBe('Library');
   });
 
+  it('should render add new song button', () => {
+    // when
+    const wrapper = shallow(
+      <LibraryPage
+        songs={[]}
+      />);
+
+    // then
+    expect(wrapper.find('.add-new-song-button').prop('to')).toBe('/library/add');
+  });
+
   it('should render song list', () => {
     // given
     const songs = [

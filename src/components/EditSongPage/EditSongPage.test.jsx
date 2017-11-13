@@ -10,16 +10,31 @@ const DEFAULT_PROPS = {
 };
 
 describe('EditSongPage component', () => {
-  it('should render card with title', () => {
-    // when
-    const wrapper = shallow(
-      <EditSongPage
-        {...DEFAULT_PROPS}
-      />);
+  describe('title', () => {
+    it('should render card with title for adding new song', () => {
+      // when
+      const wrapper = shallow(
+        <EditSongPage
+          {...DEFAULT_PROPS}
+          id={null}
+        />);
 
-    // then
-    expect(wrapper.find('Card').length).toBe(1);
-    expect(wrapper.find('Card').prop('title')).toBe('Edit song');
+      // then
+      expect(wrapper.find('Card').length).toBe(1);
+      expect(wrapper.find('Card').prop('title')).toBe('Add new song');
+    });
+
+    it('should render card with title for editing', () => {
+      // when
+      const wrapper = shallow(
+        <EditSongPage
+          {...DEFAULT_PROPS}
+        />);
+
+      // then
+      expect(wrapper.find('Card').length).toBe(1);
+      expect(wrapper.find('Card').prop('title')).toBe('Edit song');
+    });
   });
 
   it('should render submit button', () => {
