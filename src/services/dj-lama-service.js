@@ -16,6 +16,21 @@ function getLibrary() {
   });
 }
 
+function putLibrary(songId, song) {
+  return new Promise((resolve, reject) => {
+    const opts = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(song),
+    };
+
+    fetch(`${SERVICE_URL}/songs/${songId}`, opts)
+      .catch(e => reject(e));
+  });
+}
+
 function getQueue() {
   return new Promise((resolve, reject) => {
     fetch(`${SERVICE_URL}/queue`)
@@ -38,6 +53,7 @@ const DJLamaService = {
   },
   library: {
     get: getLibrary,
+    put: putLibrary,
   },
   queue: {
     get: getQueue,

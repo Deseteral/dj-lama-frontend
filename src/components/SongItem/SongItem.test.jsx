@@ -6,6 +6,7 @@ const DEFAULT_PROPS = {
   title: 'Test title',
   artist: 'Test artist',
   playCount: 12,
+  editUrl: '/edit/url',
   onClick: (() => {}),
 };
 
@@ -47,7 +48,7 @@ describe('SongItem component', () => {
         onClick={onClick}
       />);
 
-    wrapper.simulate('click');
+    wrapper.find('.content-wrapper').simulate('click');
 
     // then
     expect(onClick).toHaveBeenCalled();
@@ -102,6 +103,20 @@ describe('SongItem component', () => {
 
       // then
       expect(wrapper.find('.index').length).toBe(0);
+    });
+  });
+
+  describe('edit button', () => {
+    it('should render when editUrl is defined', () => {
+      // when
+      const wrapper = shallow(
+        <SongItem
+          {...DEFAULT_PROPS}
+        />);
+
+      // then
+      expect(wrapper.find('.icon--edit').name()).toBe('NavLink');
+      expect(wrapper.find('.icon--edit').prop('to')).toBe('/edit/url');
     });
   });
 });

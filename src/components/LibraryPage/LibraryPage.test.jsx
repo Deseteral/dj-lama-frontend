@@ -42,6 +42,7 @@ describe('LibraryPage component', () => {
       expect(props.title).toBe(s.title);
       expect(props.artist).toBe(s.artist);
       expect(props.playCount).toBe(s.playCount);
+      expect(props.editUrl).toBe(`/library/${s.id}`);
     });
   });
 });
