@@ -16,6 +16,21 @@ function getLibrary() {
   });
 }
 
+function postLibrary(song) {
+  return new Promise((resolve, reject) => {
+    const opts = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(song),
+    };
+
+    fetch(`${SERVICE_URL}/songs`, opts)
+      .catch(e => reject(e));
+  });
+}
+
 function putLibrary(songId, song) {
   return new Promise((resolve, reject) => {
     const opts = {
@@ -53,6 +68,7 @@ const DJLamaService = {
   },
   library: {
     get: getLibrary,
+    post: postLibrary,
     put: putLibrary,
   },
   queue: {

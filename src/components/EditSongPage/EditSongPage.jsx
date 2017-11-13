@@ -27,7 +27,11 @@ class EditSongPage extends Component {
       youtubeId,
     };
 
-    DJLamaService.library.put(song.id, song);
+    if (!id) {
+      DJLamaService.library.post(song);
+    } else {
+      DJLamaService.library.put(song.id, song);
+    }
 
     window.location.replace('/library');
   }
@@ -57,8 +61,12 @@ class EditSongPage extends Component {
   }
 
   render() {
+    const cardTitle = !this.state.id
+      ? 'Add new song'
+      : 'Edit song';
+
     return (
-      <Card title="Edit song">
+      <Card title={cardTitle}>
         <form>
           {this.renderInput('title', 'Title')}
           {this.renderInput('artist', 'Artist')}
