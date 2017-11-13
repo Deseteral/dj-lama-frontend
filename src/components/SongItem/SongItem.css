@@ -6,7 +6,6 @@
   padding: 0 16px;
   border-top: 2px #546E7A solid;
   transition: background-color 400ms var(--animation);
-  outline: none;
 
   &:first-child {
     border-top: none;
@@ -27,6 +26,13 @@
   }
 }
 
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  outline: none;
+}
+
 .index {
   margin-right: 16px;
   opacity: 0.75;
@@ -41,4 +47,19 @@
 .small {
   font-size: 12px;
   opacity: 0.75;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+  background-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &--edit {
+    background-image: svg-load('icons/edit.svg');
+  }
 }

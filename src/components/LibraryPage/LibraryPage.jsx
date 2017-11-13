@@ -15,6 +15,7 @@ function LibraryPage(props) {
             artist={s.artist}
             playCount={s.playCount}
             onClick={() => DJLamaService.queue.post(s.id)}
+            editUrl={`/library/${s.id}`}
           />
         ))}
       </section>

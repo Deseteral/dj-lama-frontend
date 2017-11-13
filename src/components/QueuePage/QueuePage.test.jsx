@@ -26,10 +26,10 @@ describe('QueuePage component', () => {
     };
 
     const queue = [
-      { id: 'id1', title: 'Title 1', artist: 'Artist 1', playCount: 5 },
-      { id: 'id2', title: 'Title 2', artist: 'Artist 2', playCount: 8 },
-      { id: 'id3', title: 'Title 3', artist: 'Artist 3', playCount: 1 },
-      { id: 'id4', title: 'Title 4', artist: 'Artist 4', playCount: 3 },
+      { id: 'id1', index: 1, title: 'Title 1', artist: 'Artist 1', playCount: 5 },
+      { id: 'id2', index: 2, title: 'Title 2', artist: 'Artist 2', playCount: 8 },
+      { id: 'id3', index: 3, title: 'Title 3', artist: 'Artist 3', playCount: 1 },
+      { id: 'id4', index: 4, title: 'Title 4', artist: 'Artist 4', playCount: 3 },
     ];
 
     // when
@@ -48,6 +48,7 @@ describe('QueuePage component', () => {
       title: 'Title 0',
       artist: 'Artist 0',
       playCount: 9,
+      editUrl: null,
       onClick: null,
     });
 

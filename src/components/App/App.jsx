@@ -6,6 +6,7 @@ import Navigator from '../Navigator/Navigator';
 import StatusPageContainer from '../../containers/StatusPageContainer';
 import LibraryPageContainer from '../../containers/LibraryPageContainer';
 import QueuePageContainer from '../../containers/QueuePageContainer';
+import EditSongContainer from '../../containers/EditSongContainer';
 import styles from './App.css';
 
 const DEFAULT_ROUTE = '/status';
@@ -57,7 +58,8 @@ class App extends Component {
             <div className={styles['container']}>
               <Switch>
                 <Route path="/status" component={StatusPageContainer} />
-                <Route path="/library" component={LibraryPageContainer} />
+                <Route path="/library" exact component={LibraryPageContainer} />
+                <Route path="/library/:id" component={EditSongContainer} />
                 <Route path="/queue" component={QueuePageContainer} />
               </Switch>
             </div>
