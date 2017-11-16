@@ -45,7 +45,7 @@ describe('EditSongPage component', () => {
       />);
 
     // then
-    expect(wrapper.find('.button').text()).toBe('Submit');
+    expect(wrapper.find('Button').prop('children')).toBe('Submit');
   });
 
   it('should set initial state', () => {

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import formatDuration from '../../utils/format-duration';
 import Card from '../Card/Card';
+import Button from '../Button/Button';
+import DJLamaService from '../../services/dj-lama-service';
 import styles from './StatusPage.css';
 
 class StatusPage extends Component {
@@ -62,6 +64,13 @@ class StatusPage extends Component {
             <div className={styles['artist']}>
               {songArtist}
             </div>
+            <Button
+              className={styles['skip-button']}
+              secondary
+              onClick={() => DJLamaService.queue.skip()}
+            >
+              Skip song
+            </Button>
           </Card>
         }
         {onAirTime &&
