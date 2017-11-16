@@ -62,6 +62,13 @@ function postQueue(songId) {
   });
 }
 
+function skipSong() {
+  return new Promise((resolve, reject) => {
+    fetch(`${SERVICE_URL}/queue/skip`, { method: 'POST' })
+      .catch(e => reject(e));
+  });
+}
+
 const DJLamaService = {
   status: {
     get: getStatus,
@@ -74,6 +81,7 @@ const DJLamaService = {
   queue: {
     get: getQueue,
     post: postQueue,
+    skip: skipSong,
   },
 };
 

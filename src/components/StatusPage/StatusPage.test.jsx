@@ -52,6 +52,9 @@ describe('StatusPage component', () => {
 
       expect(card.find('.artist').text())
         .toBe('test song artist');
+
+      expect(card.find('.skip-button').prop('children'))
+        .toBe('Skip song');
     });
 
     it('should not render when there is none', () => {

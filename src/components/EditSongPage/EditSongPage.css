@@ -14,20 +14,3 @@
   border: none;
   outline: none;
 }
-
-.button {
-  border: none;
-  background-color: #1E88E5;
-  font-size: 14px;
-  font-family: 'Varela Round', sans-serif;
-  border-radius: 2px;
-  padding: 8px 16px;
-  color: white;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 300ms var(--animation);
-
-  &:hover {
-    background-color: #2196F3;
-  }
-}

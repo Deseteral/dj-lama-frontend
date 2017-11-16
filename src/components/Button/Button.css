@@ -1,0 +1,27 @@
+.button {
+  border: none;
+  background-color: #1E88E5;
+  font-size: 14px;
+  font-family: 'Varela Round', sans-serif;
+  border-radius: 2px;
+  height: 36px;
+  padding: 0 16px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 300ms var(--animation);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: #2196F3;
+  }
+
+  &--secondary {
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}

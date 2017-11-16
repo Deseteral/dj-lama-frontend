@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DJLamaService from '../../services/dj-lama-service';
 import Card from '../Card/Card';
+import Button from '../Button/Button';
 import styles from './EditSongPage.css';
 
 class EditSongPage extends Component {
@@ -72,9 +73,9 @@ class EditSongPage extends Component {
           {this.renderInput('artist', 'Artist')}
           {this.renderInput('youtubeId', 'YouTube video ID')}
 
-          <button className={styles['button']} onClick={e => this.submit(e)}>
+          <Button onClick={e => this.submit(e)}>
             Submit
-          </button>
+          </Button>
         </form>
       </Card>
     );
