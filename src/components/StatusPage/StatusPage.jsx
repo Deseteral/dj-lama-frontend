@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import formatDuration from '../../utils/format-duration';
 import Card from '../Card/Card';
 import Button from '../Button/Button';
+import RadioPersonality from '../RadioPersonality/RadioPersonality';
 import DJLamaService from '../../services/dj-lama-service';
 import styles from './StatusPage.css';
 
@@ -81,14 +82,17 @@ class StatusPage extends Component {
           </Card>
         }
         {(Number.isInteger(songCount) || Number.isInteger(queueLength)) &&
-          <Card>
-            {Number.isInteger(songCount) &&
-              <div>Number of songs in library: {songCount}</div>
-            }
-            {Number.isInteger(queueLength) &&
-              <div>Number of songs in queue: {queueLength}</div>
-            }
-          </Card>
+          <div>
+            <Card>
+              {Number.isInteger(songCount) &&
+                <div>Number of songs in library: {songCount}</div>
+              }
+              {Number.isInteger(queueLength) &&
+                <div>Number of songs in queue: {queueLength}</div>
+              }
+            </Card>
+            <RadioPersonality />
+          </div>
         }
       </div>
     );
