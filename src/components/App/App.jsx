@@ -8,6 +8,7 @@ import LibraryPageContainer from '../../containers/LibraryPageContainer';
 import QueuePageContainer from '../../containers/QueuePageContainer';
 import AddSongContainer from '../../containers/AddSongContainer';
 import EditSongContainer from '../../containers/EditSongContainer';
+import DJLamaSocket from '../../services/dj-lama-socket';
 import styles from './App.css';
 
 const DEFAULT_ROUTE = '/status';
@@ -37,6 +38,9 @@ class App extends Component {
       { fn: this.props.refreshQueue, interval: 5 },
       { fn: this.props.refreshLibrary, interval: 10 },
     ].map(ri => App.setupRefreshInterval(ri.fn, ri.interval));
+
+    window.djLamaSocket = new DJLamaSocket();
+    window.djLamaSocket.connect();
   }
 
   componentWillUnmount() {
