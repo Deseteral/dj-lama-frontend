@@ -1,28 +1,28 @@
 {
   "name": "dj-lama-frontend",
   "description": "User-driven radio station - React frontend app",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
-  "dependencies": {
-    "@deseteral/react-scripts": "1.0.13-9",
-    "classnames": "2.2.5",
-    "prop-types": "15.6.0",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
-    "react-redux": "5.0.6",
-    "react-router-dom": "4.2.2",
-    "redux": "3.7.2",
-    "redux-saga": "0.15.6"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "dependencies": {
+    "@deseteral/react-scripts": "1.1.4-1",
+    "classnames": "2.2.6",
+    "prop-types": "15.6.2",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-redux": "5.0.7",
+    "react-router-dom": "4.3.1",
+    "redux": "4.0.0",
+    "redux-saga": "0.16.0"
+  },
   "devDependencies": {
-    "enzyme": "3.0.0",
-    "enzyme-adapter-react-15": "1.0.0",
-    "react-test-renderer": "15.6.2"
+    "enzyme": "3.4.1",
+    "enzyme-adapter-react-15": "1.0.6",
+    "react-test-renderer": "16.4.2"
   }
 }
