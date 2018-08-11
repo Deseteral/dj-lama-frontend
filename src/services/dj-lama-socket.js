@@ -34,7 +34,7 @@ class DJLamaSocket {
 
   textToSpeech(text) {
     const voiceMessage = new SpeechSynthesisUtterance(text);
-    voiceMessage.voice = window.speechSynthesis
+    voiceMessage.voice = window.speechSynthesis // eslint-disable-line prefer-destructuring
       .getVoices()
       .filter(v => v.lang === 'pl-PL')[1];
 

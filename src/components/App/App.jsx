@@ -15,7 +15,7 @@ const DEFAULT_ROUTE = '/status';
 
 class App extends Component {
   static getCurrentUrl() {
-    const pathname = window.location.pathname;
+    const { pathname } = window.location;
 
     if (pathname === '/') {
       return DEFAULT_ROUTE;

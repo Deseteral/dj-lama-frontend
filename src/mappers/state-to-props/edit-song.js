@@ -3,7 +3,7 @@ function mapStateToProps(state, ownProps) {
     return {};
   }
 
-  const id = ownProps.match.params.id;
+  const { id } = ownProps.match.params;
   const song = state.library.find(s => s.id === id);
 
   return {

@@ -46,6 +46,7 @@ class EditSongPage extends Component {
     const elementId = `input${fragmentNameUppercase}`;
     return (
       <div>
+        {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label className={styles['input-label']} htmlFor={elementId}>
           {label}
         </label>

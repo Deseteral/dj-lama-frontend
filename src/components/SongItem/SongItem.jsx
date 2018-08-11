@@ -12,6 +12,7 @@ function SongItem({ index, title, artist, playCount, onClick, editUrl }) {
 
   return (
     <div className={rootClassNames}>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div className={styles['content-wrapper']} onClick={onClick} role="button" tabIndex="0">
         {index &&
           <div className={styles['index']}>{index}.</div>
